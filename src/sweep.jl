@@ -9,7 +9,7 @@ See the tutorials for more details.
 """
 struct WandbHyperParameterSweep
   sweep_tag::String
-  WandbHyperParameterSweep() = new(randstring(12))
+  WandbHyperParameterSweep(tag::String=randstring(12)) = new(tag)
 end
 
 function (hpsweep::WandbHyperParameterSweep)(func, cfg,
