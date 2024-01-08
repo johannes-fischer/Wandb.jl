@@ -26,7 +26,7 @@ _to_list(x::AbstractMatrix) = pylist(pylist.(eachrow(x)))
 
 _to_dict(x) = x
 _to_dict(x::String) = pystr(x)
-_to_dict(x::AbstractArray) = _to_list(x)
+_to_dict(x::AbstractArray) = _to_list(_to_dict(xi) for xi in x)
 _to_dict(d::Dict) = pydict(Dict(k => _to_dict(v) for (k, v) in pairs(d)))
 
 # Base functions like `log`, `Image`, etc.
