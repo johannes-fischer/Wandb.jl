@@ -74,7 +74,7 @@ log(lg::WandbLogger, logs::Dict; kwargs...) = lg.wrun.log(_to_dict(logs); kwargs
 For more details checkout `wandb.config` (or `? Wandb.wandb.config` in the Julia REPL).
 """
 function update_config!(lg::WandbLogger, dict::Dict; kwargs...)
-  return lg.wrun.config.update(pydict(dict); kwargs...)
+  return lg.wrun.config.update(_to_dict(dict); kwargs...)
 end
 
 """
